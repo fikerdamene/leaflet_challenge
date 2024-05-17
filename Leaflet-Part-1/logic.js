@@ -1,9 +1,6 @@
 // Store API endpoint as queryUrl.
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
-var api_key = "sk.eyJ1IjoiYmVkYW5lIiwiYSI6ImNsdzhybHV0dDJpbTMybHFxb3c3dHg1amcifQ.-bT5cbQVdWyPmDbdkQP4Sg";
-
-
 // Function to determine marker size
 function markerSize(magnitude) {
   return magnitude * 20000;
@@ -60,7 +57,6 @@ function createFeatures(earthquakeData) {
 
 function createMap(earthquakes) {
    
-
   // Create  the grayscale tile layer
   var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{style}/tiles/{z}/{x}/{y}?access_token={access_token}', {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
@@ -68,10 +64,6 @@ function createMap(earthquakes) {
     maxZoom: 18,
     zoomOffset: -1,
   });
-
-  //   style:    'mapbox/light-v11',
-  //   access_token: api_key
-  // }).addTo(myMap);
 
   // Create map, giving it the grayscale map and earthquakes layers to display on load.
   var myMap = L.map("map", {
